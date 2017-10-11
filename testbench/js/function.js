@@ -2090,6 +2090,11 @@ $(document).ready(function(){
     $("#print_log").on('click', function(){printJsonLog(jsonLog);});
     
     
+    $("#send_pic").on('click', function(){
+        var signal = $("#msg_pic").val();
+        sendSignalPic(signal);
+    });
+    
     $(".toolbox").on('click', function(){
         _MODE = "TOOLBOX";
         alert("mode toolbox activated");
@@ -2156,6 +2161,11 @@ $(document).ready(function(){
     
     function sendSignal(signal){        
         var jsonData = '{"type":"signal", "msg":"'+signal+'"}';
+        console.log(jsonData);
+        ws.send(jsonData);
+    }
+    function sendSignalPic(signal){        
+        var jsonData = '{"type":"signal_pic", "msg":"'+signal+'"}';
         console.log(jsonData);
         ws.send(jsonData);
     }
