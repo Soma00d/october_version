@@ -16,6 +16,13 @@ $(document).ready(function(){
     var zone3 = $("#content_toolbox .diag_inge .zone_3");
     var zone4 = $("#content_toolbox .diag_inge .zone_4");
     var zone5 = $("#content_toolbox .diag_inge .zone_5");
+    
+    var ledContainer = $("#content_toolbox .diag_inge .led_container .content");
+    var enableContainer = $("#content_toolbox .diag_inge .enable_container .content");
+    var buzzerContainer = $("#content_toolbox .diag_inge .buzzer_container .content");
+     
+    
+    
     var diagInge =  $("#content_toolbox .diag_inge");
     var diagIngeComponent =  $("#content_toolbox .diag_inge .diag_component");
     var canvasJaugeInge = $("#content_toolbox .canvas_jauge");
@@ -296,33 +303,82 @@ $(document).ready(function(){
                             console.log(data[iter].zone);
                             switch(data[iter].zone){                                
                                 case "0":
-                                    console.log("put in zone 0");
-                                    zone0.append("<div class='diag_component id"+data[iter].id+"' data-id='"+data[iter].id+"' data-name='"+data[iter].symbol_name+"' data-function='"+data[iter].type+"'><span class='td photo_piece'><img src='images/"+data[iter].photo_link+"'></span><div class='info_component'><span class='symbol'>"+data[iter].symbol_name+"</span><span class='type'>"+data[iter].type+"</span><span class='descri'>"+data[iter].description+"</span><span class='td press'>"+data[iter].pressed_val_freq+"</span><span class='td rel'>"+data[iter].released_val_freq+"</span></div></div>");
+                                    if(data[iter].is_led == "1"){
+                                        zone0.append("<div class='diag_component id"+data[iter].id+"' data-id='"+data[iter].id+"' data-name='"+data[iter].symbol_name+"' data-function='"+data[iter].type+"' data-on='"+data[iter].on_signal+"' data-off='"+data[iter].off_signal+"' data-dim='"+data[iter].dim_signal+"' data-flash='"+data[iter].flash_signal+"'><span class='td photo_piece'><img src='images/"+data[iter].photo_link+"'></span><div class='info_component'><span class='symbol'>"+data[iter].symbol_name+"</span><span class='descri'>"+data[iter].description+"</span><span class='switch on'>O:<img src='images/switch_off.png'></span><span class='switch dim'>D:<img src='images/switch_off.png'></span><span class='switch flash'>F:<img src='images/switch_off.png'></span></div></div>");
+                                    }else{
+                                        zone0.append("<div class='diag_component id"+data[iter].id+"' data-id='"+data[iter].id+"' data-name='"+data[iter].symbol_name+"' data-function='"+data[iter].type+"'><span class='td photo_piece'><img src='images/"+data[iter].photo_link+"'></span><div class='info_component'><span class='symbol'>"+data[iter].symbol_name+"</span><span class='type'>"+data[iter].type+"</span><span class='descri'>"+data[iter].description+"</span><span class='td press'>"+data[iter].pressed_val_freq+"</span><span class='td rel'>"+data[iter].released_val_freq+"</span></div></div>");
+                                    }
                                     break;
                                 case "1":
-                                   zone1.append("<div class='diag_component id"+data[iter].id+"' data-id='"+data[iter].id+"' data-name='"+data[iter].symbol_name+"' data-function='"+data[iter].type+"'><span class='td photo_piece'><img src='images/"+data[iter].photo_link+"'></span><div class='info_component'><span class='symbol'>"+data[iter].symbol_name+"</span><span class='type'>"+data[iter].type+"</span><span class='descri'>"+data[iter].description+"</span><span class='td press'>"+data[iter].pressed_val_freq+"</span><span class='td rel'>"+data[iter].released_val_freq+"</span></div></div>");
+                                   if(data[iter].is_led == "1"){
+                                        zone1.append("<div class='diag_component id"+data[iter].id+"' data-id='"+data[iter].id+"' data-name='"+data[iter].symbol_name+"' data-function='"+data[iter].type+"' data-on='"+data[iter].on_signal+"' data-off='"+data[iter].off_signal+"' data-dim='"+data[iter].dim_signal+"' data-flash='"+data[iter].flash_signal+"'><span class='td photo_piece'><img src='images/"+data[iter].photo_link+"'></span><div class='info_component'><span class='symbol'>"+data[iter].symbol_name+"</span><span class='descri'>"+data[iter].description+"</span><span class='switch on'>O:<img src='images/switch_off.png'></span><span class='switch dim'>D:<img src='images/switch_off.png'></span><span class='switch flash'>F:<img src='images/switch_off.png'></span></div></div>");
+                                    }else{
+                                        zone1.append("<div class='diag_component id"+data[iter].id+"' data-id='"+data[iter].id+"' data-name='"+data[iter].symbol_name+"' data-function='"+data[iter].type+"'><span class='td photo_piece'><img src='images/"+data[iter].photo_link+"'></span><div class='info_component'><span class='symbol'>"+data[iter].symbol_name+"</span><span class='type'>"+data[iter].type+"</span><span class='descri'>"+data[iter].description+"</span><span class='td press'>"+data[iter].pressed_val_freq+"</span><span class='td rel'>"+data[iter].released_val_freq+"</span></div></div>");
+                                    }
                                     break;
                                 case "2":
-                                    zone2.append("<div class='diag_component id"+data[iter].id+"' data-id='"+data[iter].id+"' data-name='"+data[iter].symbol_name+"' data-function='"+data[iter].type+"'><span class='td photo_piece'><img src='images/"+data[iter].photo_link+"'></span><div class='info_component'><span class='symbol'>"+data[iter].symbol_name+"</span><span class='type'>"+data[iter].type+"</span><span class='descri'>"+data[iter].description+"</span><span class='td press'>"+data[iter].pressed_val_freq+"</span><span class='td rel'>"+data[iter].released_val_freq+"</span></div></div>");
+                                    if(data[iter].is_led == "1"){
+                                        zone2.append("<div class='diag_component id"+data[iter].id+"' data-id='"+data[iter].id+"' data-name='"+data[iter].symbol_name+"' data-function='"+data[iter].type+"' data-on='"+data[iter].on_signal+"' data-off='"+data[iter].off_signal+"' data-dim='"+data[iter].dim_signal+"' data-flash='"+data[iter].flash_signal+"'><span class='td photo_piece'><img src='images/"+data[iter].photo_link+"'></span><div class='info_component'><span class='symbol'>"+data[iter].symbol_name+"</span><span class='descri'>"+data[iter].description+"</span><span class='switch on'>O:<img src='images/switch_off.png'></span><span class='switch dim'>D:<img src='images/switch_off.png'></span><span class='switch flash'>F:<img src='images/switch_off.png'></span></div></div>");
+                                    }else{
+                                        zone2.append("<div class='diag_component id"+data[iter].id+"' data-id='"+data[iter].id+"' data-name='"+data[iter].symbol_name+"' data-function='"+data[iter].type+"'><span class='td photo_piece'><img src='images/"+data[iter].photo_link+"'></span><div class='info_component'><span class='symbol'>"+data[iter].symbol_name+"</span><span class='type'>"+data[iter].type+"</span><span class='descri'>"+data[iter].description+"</span><span class='td press'>"+data[iter].pressed_val_freq+"</span><span class='td rel'>"+data[iter].released_val_freq+"</span></div></div>");
+                                    }
                                     break;
                                 case "3":
-                                    zone3.append("<div class='diag_component id"+data[iter].id+"' data-id='"+data[iter].id+"' data-name='"+data[iter].symbol_name+"' data-function='"+data[iter].type+"'><span class='td photo_piece'><img src='images/"+data[iter].photo_link+"'></span><div class='info_component'><span class='symbol'>"+data[iter].symbol_name+"</span><span class='type'>"+data[iter].type+"</span><span class='descri'>"+data[iter].description+"</span><span class='td press'>"+data[iter].pressed_val_freq+"</span><span class='td rel'>"+data[iter].released_val_freq+"</span></div></div>");
+                                    if(data[iter].is_led == "1"){
+                                        zone3.append("<div class='diag_component id"+data[iter].id+"' data-id='"+data[iter].id+"' data-name='"+data[iter].symbol_name+"' data-function='"+data[iter].type+"' data-on='"+data[iter].on_signal+"' data-off='"+data[iter].off_signal+"' data-dim='"+data[iter].dim_signal+"' data-flash='"+data[iter].flash_signal+"'><span class='td photo_piece'><img src='images/"+data[iter].photo_link+"'></span><div class='info_component'><span class='symbol'>"+data[iter].symbol_name+"</span><span class='descri'>"+data[iter].description+"</span><span class='switch on'>O:<img src='images/switch_off.png'></span><span class='switch dim'>D:<img src='images/switch_off.png'></span><span class='switch flash'>F:<img src='images/switch_off.png'></span></div></div>");
+                                    }else{
+                                        zone3.append("<div class='diag_component id"+data[iter].id+"' data-id='"+data[iter].id+"' data-name='"+data[iter].symbol_name+"' data-function='"+data[iter].type+"'><span class='td photo_piece'><img src='images/"+data[iter].photo_link+"'></span><div class='info_component'><span class='symbol'>"+data[iter].symbol_name+"</span><span class='type'>"+data[iter].type+"</span><span class='descri'>"+data[iter].description+"</span><span class='td press'>"+data[iter].pressed_val_freq+"</span><span class='td rel'>"+data[iter].released_val_freq+"</span></div></div>");
+                                    }
                                     break;
                                 case "4":
-                                    zone4.append("<div class='diag_component id"+data[iter].id+"' data-id='"+data[iter].id+"' data-name='"+data[iter].symbol_name+"' data-function='"+data[iter].type+"'><span class='td photo_piece'><img src='images/"+data[iter].photo_link+"'></span><div class='info_component'><span class='symbol'>"+data[iter].symbol_name+"</span><span class='type'>"+data[iter].type+"</span><span class='descri'>"+data[iter].description+"</span><span class='td press'>"+data[iter].pressed_val_freq+"</span><span class='td rel'>"+data[iter].released_val_freq+"</span></div></div>");
+                                    if(data[iter].is_led == "1"){
+                                        zone4.append("<div class='diag_component id"+data[iter].id+"' data-id='"+data[iter].id+"' data-name='"+data[iter].symbol_name+"' data-function='"+data[iter].type+"' data-on='"+data[iter].on_signal+"' data-off='"+data[iter].off_signal+"' data-dim='"+data[iter].dim_signal+"' data-flash='"+data[iter].flash_signal+"'><span class='td photo_piece'><img src='images/"+data[iter].photo_link+"'></span><div class='info_component'><span class='symbol'>"+data[iter].symbol_name+"</span><span class='descri'>"+data[iter].description+"</span><span class='switch on'>O:<img src='images/switch_off.png'></span><span class='switch dim'>D:<img src='images/switch_off.png'></span><span class='switch flash'>F:<img src='images/switch_off.png'></span></div></div>");
+                                    }else{
+                                        zone4.append("<div class='diag_component id"+data[iter].id+"' data-id='"+data[iter].id+"' data-name='"+data[iter].symbol_name+"' data-function='"+data[iter].type+"'><span class='td photo_piece'><img src='images/"+data[iter].photo_link+"'></span><div class='info_component'><span class='symbol'>"+data[iter].symbol_name+"</span><span class='type'>"+data[iter].type+"</span><span class='descri'>"+data[iter].description+"</span><span class='td press'>"+data[iter].pressed_val_freq+"</span><span class='td rel'>"+data[iter].released_val_freq+"</span></div></div>");
+                                    }
                                     break;
                                 case "5":
-                                    zone5.append("<div class='diag_component id"+data[iter].id+"' data-id='"+data[iter].id+"' data-name='"+data[iter].symbol_name+"' data-function='"+data[iter].type+"'><span class='td photo_piece'><img src='images/"+data[iter].photo_link+"'></span><div class='info_component'><span class='symbol'>"+data[iter].symbol_name+"</span><span class='type'>"+data[iter].type+"</span><span class='descri'>"+data[iter].description+"</span><span class='td press'>"+data[iter].pressed_val_freq+"</span><span class='td rel'>"+data[iter].released_val_freq+"</span></div></div>");
+                                    if(data[iter].is_led == "1"){
+                                        zone5.append("<div class='diag_component id"+data[iter].id+"' data-id='"+data[iter].id+"' data-name='"+data[iter].symbol_name+"' data-function='"+data[iter].type+"' data-on='"+data[iter].on_signal+"' data-off='"+data[iter].off_signal+"' data-dim='"+data[iter].dim_signal+"' data-flash='"+data[iter].flash_signal+"'><span class='td photo_piece'><img src='images/"+data[iter].photo_link+"'></span><div class='info_component'><span class='symbol'>"+data[iter].symbol_name+"</span><span class='descri'>"+data[iter].description+"</span><span class='switch on'>O:<img src='images/switch_off.png'></span><span class='switch dim'>D:<img src='images/switch_off.png'></span><span class='switch flash'>F:<img src='images/switch_off.png'></span></div></div>");
+                                    }else{
+                                        zone5.append("<div class='diag_component id"+data[iter].id+"' data-id='"+data[iter].id+"' data-name='"+data[iter].symbol_name+"' data-function='"+data[iter].type+"'><span class='td photo_piece'><img src='images/"+data[iter].photo_link+"'></span><div class='info_component'><span class='symbol'>"+data[iter].symbol_name+"</span><span class='type'>"+data[iter].type+"</span><span class='descri'>"+data[iter].description+"</span><span class='td press'>"+data[iter].pressed_val_freq+"</span><span class='td rel'>"+data[iter].released_val_freq+"</span></div></div>");
+                                    }
                                     break;
                             }
+                            switch(data[iter].type){
+                                case "buzzer":
+                                   buzzerContainer.append("<div class='diag_component id"+data[iter].id+"' data-id='"+data[iter].id+"' data-name='"+data[iter].symbol_name+"' data-function='"+data[iter].type+"'><span class='td photo_piece'><img src='images/"+data[iter].photo_link+"'></span><div class='info_component'><span class='symbol'>"+data[iter].symbol_name+"</span><span class='type'>"+data[iter].type+"</span><span class='descri'>"+data[iter].description+"</span><span class='td press'>"+data[iter].pressed_val_freq+"</span><span class='td rel'>"+data[iter].released_val_freq+"</span></div></div>");
+                                   break;
+                                case "enable":
+                                   enableContainer.append("<div class='diag_component id"+data[iter].id+"' data-id='"+data[iter].id+"' data-name='"+data[iter].symbol_name+"' data-function='"+data[iter].type+"'><span class='td photo_piece'><img src='images/"+data[iter].photo_link+"'></span><div class='info_component'><span class='symbol'>"+data[iter].symbol_name+"</span><span class='type'>"+data[iter].type+"</span><span class='descri'>"+data[iter].description+"</span><span class='td press'>"+data[iter].pressed_val_freq+"</span><span class='td rel'>"+data[iter].released_val_freq+"</span></div></div>");
+                                   break;
+                            }
+                                   
+                        }
+                        diagInge.find(".switch").on('click', function(){
+                            var onSignal = $(this).parents(".diag_component").data("on");
+                            var offSignal = $(this).parents(".diag_component").data("off");
+                            var dimSignal = $(this).parents(".diag_component").data("dim");
+                            var flashSignal = $(this).parents(".diag_component").data("flash");                            
+                            console.log(onSignal, offSignal, dimSignal, flashSignal);   
                             
-//                            
-//                            if(data[iter].type !== "led" && data[iter].type !== "buzzer"){
-//                                lineContainer.append("<div class='line id"+data[iter].id+"' data-id='"+data[iter].id+"' data-name='"+data[iter].symbol_name+"' data-function='"+data[iter].type+"'><span class='td'>"+data[iter].symbol_name+"</span><span class='td'>"+data[iter].type+"</span><span class='td'>"+data[iter].description+"</span><span class='td press'>"+data[iter].pressed_val_freq+"</span><span class='td rel'>"+data[iter].released_val_freq+"</span><span class='td photo_piece'><img src='images/"+data[iter].photo_link+"'></span><span class='td totest'>Not tested</span></div>");
-//                            }else{
-//                                lineContainer.append("<div class='line id"+data[iter].id+"' data-id='"+data[iter].id+"' data-name='"+data[iter].symbol_name+"' data-function='"+data[iter].type+"'><span class='td'>"+data[iter].symbol_name+"</span><span class='td'>"+data[iter].type+"</span><span class='td'>"+data[iter].description+"</span><span class='td press'>"+data[iter].pressed_val_freq+"</span><span class='td rel'>"+data[iter].released_val_freq+"</span><span class='td photo_piece'><img src='images/"+data[iter].photo_link+"'></span><span class='td test_bt' data-name='"+data[iter].description+"' data-press='"+data[iter].pressed_val_freq+"' data-release='"+data[iter].released_val_freq+"' data-canid='"+data[iter].can_id+"'>TEST</span></div>");
-//                            }
-                        }                        
+                            if(!$(this).hasClass("activated")){                                
+                                $(this).parents(".diag_component").find(".switch img").attr('src', 'images/switch_off.png');
+                                $(this).find("img").attr('src', 'images/switch_on.png');
+                                $(this).addClass("activated");
+                                //send here signal off
+                            }else{
+                                $(this).find("img").attr('src', 'images/switch_off.png');
+                                $(this).removeClass("activated");
+                                if($(this).hasClass('on')){
+                                    //send signal(onSignal);
+                                }else if($(this).hasClass('dim')){
+                                    //send signal(dimSignal);
+                                }else if($(this).hasClass('flash')){
+                                    //send signal(flashSignal);
+                                }
+                            }
+                        })
                     }
                 });        
             }
@@ -2107,15 +2163,23 @@ $(document).ready(function(){
     //switch de panel sur la toolbox ingé
     $("#content_toolbox .show_joystick").on('click', function(){
         $("#content_toolbox .diag_inge .button_show").fadeOut(300);
+        $("#content_toolbox .diag_inge .led_show").fadeOut(300);
         setTimeout(function(){
             $("#content_toolbox .diag_inge .joystick_show").fadeIn(300);
-        },300);
-        
+        },300);        
     });
     $("#content_toolbox .show_button").on('click', function(){
         $("#content_toolbox .diag_inge .joystick_show").fadeOut(300);
+        $("#content_toolbox .diag_inge .led_show").fadeOut(300);
         setTimeout(function(){
             $("#content_toolbox .diag_inge .button_show").fadeIn(300);
+        },300);
+    });
+    $("#content_toolbox .show_led").on('click', function(){
+        $("#content_toolbox .diag_inge .joystick_show").fadeOut(300);
+        $("#content_toolbox .diag_inge .button_show").fadeOut(300);
+        setTimeout(function(){
+            $("#content_toolbox .diag_inge .led_show").fadeIn(300);
         },300);
     });
     $("#content_toolbox .get_conf_inge").on('click', function(){        
@@ -2153,6 +2217,9 @@ $(document).ready(function(){
             $("#dialog-link-calibration").addClass("selected");
         },300);
     });
+    
+    
+   
     
     
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

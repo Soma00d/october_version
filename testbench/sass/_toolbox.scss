@@ -246,11 +246,25 @@
                     border: 4px solid #a3ec6d;
                 }
             }
-            width: 355px;
+            width: 365px;
             .info_component{
                 display: inline-block;
                 vertical-align: middle;
                 margin-left: 8px;
+                .switch{
+                    img{
+                        width: 32px;
+                        height: auto;
+                        display: inline-block;
+                        vertical-align: middle;
+                    }
+                    display: inline-block;
+                    vertical-align: middle;
+                    cursor:pointer;
+                    margin:2px;
+                    font-weight:bold;
+                    
+                }
                 .symbol{
                     display: inline-block;
                     vertical-align: middle;
@@ -297,7 +311,7 @@
             left: 0;
             width: 986px;
             text-align:center;
-            width: 715px;
+            width: 750px;
             margin: auto;
             right: 0;
             .diag_component{
@@ -314,8 +328,7 @@
         &.zone_3{
             top: 93px;
             left: 0;
-            width: 986px;
-            width: 715px;
+            width: 750px;
             margin: auto;
             right: -320px;
             .diag_component{
@@ -327,9 +340,8 @@
         &.zone_4{
             top: 370px;
             left: 0;
-            width: 986px;
+           width: 750px;
             text-align: center;
-            width: 715px;
             margin: auto;
             right: -320px;
             .diag_component{
@@ -341,9 +353,8 @@
         &.zone_5{
             top: 657px;
             left: 0;
-            width: 986px;
+            width: 750px;
             text-align: center;
-            width: 715px;
             margin: auto;
             right: -320px;
             .diag_component{
@@ -379,7 +390,7 @@
     .show_joystick{
         text-align: center;
         background: #3b73b9;
-        padding: 10px;
+        padding: 5px;
         color: white;
         width: 183px;
         border-radius: 5px;
@@ -395,7 +406,7 @@
     .show_button{
         text-align: center;
         background: #3b73b9;
-        padding: 10px;
+        padding: 5px;
         color: white;
         width: 183px;
         border-radius: 5px;
@@ -404,6 +415,23 @@
         position: absolute;
         left: 0;
         right: 0;
+        margin: auto;
+        cursor: pointer;
+        box-shadow: 2px 2px 2px black;
+    }
+    .show_led{
+        text-align: center;
+        background: #3b73b9;
+        padding: 5px;
+        color: white;
+        width: 183px;
+        border-radius: 5px;
+        display: inline-block;
+        vertical-align: top;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 41px;
         margin: auto;
         cursor: pointer;
         box-shadow: 2px 2px 2px black;
@@ -657,6 +685,9 @@
             }
     }
     
+    .led_show{
+        display:none;
+    }
     
     
     

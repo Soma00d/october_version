@@ -78,7 +78,7 @@ $saveLogPretest = function ($connexion){
 };
 
 //enregistre les log d'un testfinal
-$saveLogPretest = function ($connexion){
+$saveLogFinal = function ($connexion){
     $jsonlog = $_POST['jsonlog'];
     $user_sso = 'testuserfinal';
     $pn = 'testPNFinal';
@@ -114,7 +114,7 @@ if(isset($_GET["function"])){
             $saveLogPretest($connexion);
             break;    
         case "save_log_final":
-            $saveLogPretest($connexion);
+            $saveLogFinal($connexion);
             break;    
         case "get_final_test":
             echo $getFinalTest($param1, $connexion);
